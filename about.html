@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Про мене - MASAZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Загальні стилі */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background-color: #f5f5f5; }
+    a { text-decoration: none; color: inherit; }
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo svg { width: 180px; height: auto; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #333; transition: color 0.3s; }
+    nav ul li a:hover { color: #ff7e5f; }
+    
+    /* Контейнер контенту */
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 { text-align: center; margin-bottom: 20px; font-size: 36px; }
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    /* Стиль зображення з анімацією */
+    .profile-image {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Анімація */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Адаптивність */
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav ul li { margin-left: 10px; }
+      .content { margin: 20px 10px; padding: 15px; }
+      h1 { font-size: 28px; }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#feb47b;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="50" rx="10" fill="url(#logoGradient)"/>
+          <circle cx="40" cy="25" r="12" fill="#fff" />
+          <text x="100" y="32" font-family="Montserrat, sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="600">
+            MASAZ
+          </text>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="about.html">Про мене</a></li>
+        <li><a href="services.html">Послуги</a></li>
+        <li><a href="booking.html">Запис</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Контент "Про мене" -->
+  <div class="content">
+    <h1>Про мене</h1>
+    <!-- Зображення профілю з анімацією -->
+    <img src="https://via.placeholder.com/400x400?text=Грещишена+Жанна" alt="Грещишена Жанна" class="profile-image">
+    <p>
+      Я, Грещишена Жанна, досвідчений спеціаліст та лікар вертибріолог з багаторічним досвідом роботи. Моє навчання почалося у провідних китайських школах, де я засвоїла традиційні методики масажу, і продовжилося курсами кваліфікації в університеті, завдяки яким я володію сучасними технологіями лікування.
+    </p>
+    <p>
+      Працювала у клініці "Добробут" як лікар вертибріолог, де вдосконалювала свої навички в області лікування та реабілітації хребта. Я використовую сучасні та традиційні технології масажу, що дозволяють досягати максимального ефекту в знятті болю, відновленні енергетичного балансу та покращенні загального самопочуття.
+    </p>
+    <p>
+      Моя мета – допомогти кожному клієнту відчути полегшення, повернути життєву енергію та зберегти здоров'я спини та хребта. Запрошую вас скористатися моїми послугами та відчути різницю, яку може принести професійний масаж.
+    </p>
+  </div>
+
+  <!-- Футер -->
+  <footer>
+    <p>&copy; 2025 MASAZ. Всі права захищено.</p>
+  </footer>
+</body>
+</html>

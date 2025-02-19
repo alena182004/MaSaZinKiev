@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Запис - MASAZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Загальні стилі */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background-color: #f5f5f5; }
+    a { text-decoration: none; color: inherit; }
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo svg { width: 180px; height: auto; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #333; transition: color 0.3s; }
+    nav ul li a:hover { color: #ff7e5f; }
+    /* Форма запису */
+    .booking-section {
+      padding: 50px 20px;
+      background-color: #fff;
+      max-width: 800px;
+      margin: 40px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      border: 2px solid;
+      border-image-slice: 1;
+      border-width: 2px;
+      border-image-source: linear-gradient(45deg, #ff7e5f, #feb47b);
+      animation: fadeIn 1s ease;
+    }
+    .booking-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+    .booking-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .form-group { flex: 1 1 45%; display: flex; flex-direction: column; }
+    .form-group.full { flex: 1 1 100%; }
+    label { margin-bottom: 5px; font-weight: bold; }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      padding: 15px;
+      background: linear-gradient(135deg, #28a745, #218838);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: auto;
+      margin-top: 20px;
+      width: 200px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #218838, #28a745);
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    /* Анімація */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Адаптивність */
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav ul li { margin-left: 10px; }
+      .booking-section { margin: 20px 10px; padding: 30px 15px; }
+      .form-group { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#feb47b;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="50" rx="10" fill="url(#logoGradient)"/>
+          <circle cx="40" cy="25" r="12" fill="#fff" />
+          <text x="100" y="32" font-family="Montserrat, sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="600">
+            MASAZ
+          </text>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="services.html">Послуги</a></li>
+        <li><a href="booking.html">Запис</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Форма запису -->
+  <section class="booking-section">
+    <h2>Онлайн запис</h2>
+    <!-- Важливо: name=... мають збігатися з змінними в шаблоні EmailJS -->
+    <form class="booking-form">
+      <div class="form-group">
+        <label for="name">Ім'я</label>
+        <input type="text" id="name" name="user_name" placeholder="Ваше ім'я" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="user_email" placeholder="Ваш email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="user_phone" placeholder="Ваш телефон" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Дата</label>
+        <input type="date" id="date" name="appointment_date" required>
+      </div>
+      <div class="form-group full">
+        <label for="time">Час</label>
+        <input type="time" id="time" name="appointment_time" required>
+      </div>
+      <div class="form-group full">
+        <label for="message">Додаткові побажання</label>
+        <textarea id="message" name="user_message" rows="4" placeholder="Ваші побажання"></textarea>
+      </div>
+      <button type="submit">Відправити запис</button>
+    </form>
+  </section>
+
+  <!-- Футер -->
+  <footer>
+    <p>&copy; 2025 MASAZ. Всі права захищено.</p>
+  </footer>
+
+  <!-- Підключення EmailJS бібліотеки -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Ініціалізація EmailJS (зверніть увагу на ваш публічний ключ)
+    (function(){
+      emailjs.init("meT99PALRng6lhMov"); // замініть на ваш власний ключ
+    })();
+
+    // Обробка відправки форми за допомогою EmailJS
+    document.addEventListener('DOMContentLoaded', function() {
+      var bookingForm = document.querySelector('.booking-form');
+      bookingForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Блокуємо стандартну поведінку форми
+
+        // Відправка даних форми через EmailJS
+        emailjs.sendForm('service_b3gay6l', 'template_0uomxxs', bookingForm)
+          .then(function(response) {
+            alert('Ваш запис успішно надіслано. Дякуємо!');
+            bookingForm.reset();
+          }, function(error) {
+            alert('Сталася помилка при відправленні запису. Будь ласка, спробуйте ще раз.');
+          });
+      });
+    });
+  </script>
+</body>
+</html>

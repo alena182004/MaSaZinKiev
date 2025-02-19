@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Послуги - MASAZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Загальні стилі */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Шапка */
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    header .logo svg { width: 180px; height: auto; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #333; transition: color 0.3s; }
+    nav ul li a:hover { color: #ff7e5f; }
+    
+    /* Контейнер */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      animation: fadeIn 1s ease;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      animation: fadeIn 1s ease;
+      color: #444;
+    }
+    
+    /* Блок послуг */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .service-card {
+      background: linear-gradient(135deg, #ffffff, #f8f8f8);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      flex: 1 1 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideIn 1s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(255,59,95,0.3), rgba(255,138,0,0.3));
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    
+    .service-card h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #ff7e5f;
+      position: relative;
+      z-index: 1;
+    }
+    .service-card p {
+      font-size: 16px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Футер */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    /* Анімації */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Адаптивність */
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav ul li { margin-left: 10px; }
+      h1 { font-size: 28px; }
+      .service-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#feb47b;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="50" rx="10" fill="url(#logoGradient)"/>
+          <circle cx="40" cy="25" r="12" fill="#fff" />
+          <text x="100" y="32" font-family="Montserrat, sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="600">
+            MASAZ
+          </text>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="services.html">Послуги</a></li>
+        <li><a href="booking.html">Запис</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Контент "Послуги" -->
+  <div class="container">
+    <h1>Наші Послуги</h1>
+    <div class="services">
+      <!-- Ігловколювання -->
+      <div class="service-card">
+        <h2>Ігловколювання</h2>
+        <p>
+          Ігловколювання – це сучасна терапія, що поєднує традиційні методи та інноваційні технології. Під час процедури тонкі стерильні голки стимулюють енергетичні точки, що сприяє гармонізації внутрішніх процесів організму, зниженню болю та зняттю стресу. Процедура покращує кровообіг, активізує природні регенеративні процеси та допомагає відновити енергетичний баланс. Цей метод рекомендований для зміцнення імунітету та загального оздоровлення, забезпечуючи природну підтримку організму.
+        </p>
+      </div>
+      <!-- Релакс масаж -->
+      <div class="service-card">
+        <h2>Релакс масаж</h2>
+        <p>
+          Релакс масаж спрямований на зняття стресу та напруги, забезпечуючи глибоке відчуття спокою та гармонії. Завдяки ніжним та плавним рухам, цей вид масажу знімає м'язове напруження, покращує кровообіг та стимулює природні процеси відновлення.
+        </p>
+      </div>
+      <!-- Лікувальний масаж -->
+      <div class="service-card">
+        <h2>Лікувальний масаж</h2>
+        <p>
+          Лікувальний масаж допомагає усунути біль, покращити кровообіг та зняти запалення. Цей вид масажу орієнтований на терапевтичне впливання на проблемні зони, сприяючи швидшому одужанню та відновленню після травм або хронічних захворювань.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <footer>
+    <p>&copy; 2025 MASAZ. Всі права захищено.</p>
+  </footer>
+</body>
+</html>

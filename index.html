@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Головна - MASAZ</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Загальні стилі */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #181818; /* Темний фон */
+      color: #eee;
+    }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Шапка */
+    header {
+      background-color: #111;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header .logo svg { width: 180px; height: auto; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #bbb; transition: color 0.3s; }
+    nav ul li a:hover { color: #ff3b3f; }
+    
+    /* Hero секція */
+    .hero {
+      background: url('https://via.placeholder.com/1600x600/000000/555555?text=Brutal+Atmosphere') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); /* Темніший оверлей */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-out;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    .btn {
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #ff3b3f, #ff8a00);
+      border: none;
+      border-radius: 0; /* Гострі кути */
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn:hover { 
+      transform: scale(1.05); 
+      background: linear-gradient(135deg, #ff8a00, #ff3b3f);
+    }
+    
+    /* Блок відгуків */
+    .testimonials {
+      padding: 60px 20px;
+      background-color: #222; /* злегка відрізняється від основного фону */
+      text-align: center;
+      position: relative;
+    }
+    .testimonials h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      animation: fadeInDown 1s ease-out;
+    }
+    .testimonial-slider {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      height: 120px; /* фіксована висота, щоб не стрибав контейнер */
+      overflow: hidden;
+    }
+    .testimonial-slide {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      animation: fade 15s infinite; /* цикл у 15s */
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+    /* Кожному слайду даємо свій delay, щоб вони йшли один за одним */
+    .testimonial-slide:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .testimonial-slide:nth-child(2) {
+      animation-delay: 5s;
+    }
+    .testimonial-slide:nth-child(3) {
+      animation-delay: 10s;
+    }
+    .testimonial-slide p {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .testimonial-slide h3 {
+      font-size: 18px;
+      color: #ff3b3f;
+    }
+    
+    /* Футер */
+    footer {
+      background-color: #111;
+      color: #888;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Анімації */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Анімація для слайдів відгуків */
+    @keyframes fade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      25%  { opacity: 1; }
+      30%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+    /* Адаптивність */
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav ul li { margin-left: 10px; }
+      .hero { height: 70vh; }
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 18px; }
+      .btn { padding: 12px 25px; font-size: 14px; }
+      
+      .testimonials h2 { font-size: 28px; }
+      .testimonial-slide p { font-size: 18px; }
+    }
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+      }
+      nav ul li { margin: 5px 10px; }
+      .hero { height: 60vh; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .btn { padding: 10px 20px; font-size: 14px; }
+      
+      .testimonials h2 { font-size: 24px; }
+      .testimonial-slide p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <!-- Оновлений SVG-логотип MASAZ -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff3b3f;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#ff8a00;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="50" rx="10" fill="url(#logoGradient)"/>
+          <circle cx="40" cy="25" r="12" fill="#fff" />
+          <text x="100" y="32" font-family="Montserrat, sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="600">
+            MASAZ
+          </text>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="about.html">Про нас</a></li>
+        <li><a href="services.html">Послуги</a></li>
+        <li><a href="booking.html">Запис</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero секція -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ласкаво просимо до MASAZ!</h1>
+      <p>Масаж, що пробуджує силу та енергію</p>
+      <a href="booking.html" class="btn">Записатися зараз</a>
+    </div>
+  </section>
+
+  <!-- Відгуки (Testimonial) -->
+  <section class="testimonials">
+    <h2>Відгуки наших клієнтів</h2>
+    <div class="testimonial-slider">
+      <!-- 1-й відгук -->
+      <div class="testimonial-slide">
+        <p>“Неймовірний масаж, відчуваю себе відновленим!”</p>
+        <h3>— Іван</h3>
+      </div>
+      <!-- 2-й відгук -->
+      <div class="testimonial-slide">
+        <p>“Чудова атмосфера та професіоналізм! Рекомендую всім.”</p>
+        <h3>— Ольга</h3>
+      </div>
+      <!-- 3-й відгук -->
+      <div class="testimonial-slide">
+        <p>“Найкращий масаж, який я коли-небудь пробував!”</p>
+        <h3>— Андрій</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer>
+    <p>&copy; 2025 MASAZ. Всі права захищено.</p>
+  </footer>
+</body>
+</html>
